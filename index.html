@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRNS Innovations -  Innovate today. Empower tomorrow. </title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            border-bottom: 2px solid #1e40af;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e40af;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #1e40af;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #000000;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 0;
+            text-align: center;
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            padding: 4rem 20px;
+            color: #ffffff;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 3rem;
+            font-weight: 500;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Statistics Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #000000;
+            font-weight: 500;
+        }
+
+        .what-we-do {
+            margin: 3rem 0;
+            text-align: left;
+        }
+
+        .what-we-do h2 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .point {
+            background-color: #ffffff;
+            padding: 0;
+            border: 2px solid #1e40af;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .point:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
+        }
+
+        .point-icon {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .point-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .point:hover .point-image {
+            transform: scale(1.1);
+        }
+
+        .point h3 {
+            color: #1e40af;
+            margin: 1.5rem 1.5rem 1rem;
+            font-size: 1.25rem;
+        }
+
+        .point p {
+            color: #000000;
+            margin: 0 1.5rem 1.5rem;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 4rem 0;
+            min-height: 60vh;
+        }
+
+        .content-section h1 {
+            font-size: 2.5rem;
+            color: #000000;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* About Page Styles */
+        .who-we-are,
+        .vision-mission {
+            margin: 3rem 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .who-we-are h2,
+        .vision h2,
+        .mission h2 {
+            font-size: 1.75rem;
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+
+        .who-we-are p,
+        .vision p,
+        .mission p {
+            color: #000000;
+            margin-bottom: 1rem;
+            font-size: 1.0625rem;
+        }
+
+        .about-hero-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .about-hero-image:hover .about-image {
+            transform: scale(1.05);
+        }
+
+        .vision-mission {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .vision,
+        .mission {
+            background-color: #ffffff;
+            padding: 0;
+            border: 2px solid #1e40af;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .vision:hover,
+        .mission:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(30, 64, 175, 0.2);
+        }
+
+        .vision-icon,
+        .mission-icon {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .vision-image,
+        .mission-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .vision:hover .vision-image,
+        .mission:hover .mission-image {
+            transform: scale(1.1);
+        }
+
+        .vision h2,
+        .mission h2 {
+            margin: 1.5rem 1.5rem 1rem;
+        }
+
+        .vision p,
+        .mission p {
+            margin: 0 1.5rem 1.5rem;
+        }
+
+        /* Programs Page Styles */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .program-card {
+            background-color: #ffffff;
+            padding: 0;
+            border: 2px solid #1e40af;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
+        }
+
+        .program-icon {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .program-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .program-card:hover .program-image {
+            transform: scale(1.1);
+        }
+
+        .program-card h2 {
+            color: #1e40af;
+            margin: 1.5rem 1.5rem 1rem;
+            font-size: 1.5rem;
+        }
+
+        .program-card p {
+            color: #000000;
+            margin: 0 1.5rem 1.5rem;
+        }
+
+        .btn-link {
+            color: #1e40af;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: inline-block;
+            margin: 0 1.5rem 1.5rem;
+        }
+
+        .btn-link:hover {
+            color: #2563eb;
+        }
+
+        /* Internship Page Styles */
+        .internship-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .detail-card {
+            background-color: #ffffff;
+            padding: 2rem;
+            border: 2px solid #1e40af;
+            border-radius: 8px;
+        }
+
+        .detail-card h2 {
+            color: #1e40af;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .detail-card .highlight {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+
+        .detail-card p {
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+
+        .features-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .features-list li {
+            color: #000000;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1e40af;
+            font-weight: bold;
+        }
+
+        /* Contact Page Styles */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .contact-card {
+            background-color: #ffffff;
+            padding: 2rem;
+            border: 2px solid #1e40af;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contact-card h2 {
+            color: #1e40af;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-card .highlight {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 4rem 0;
+            background-color: #f8fafc;
+        }
+
+        .gallery-section h2 {
+            font-size: 2.5rem;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            height: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(30, 64, 175, 0.9), transparent);
+            color: #ffffff;
+            padding: 2rem 1rem 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay p {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        /* Button Styles */
+        .cta-buttons,
+        .cta-section {
+            text-align: center;
+            margin-top: 3rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #1e40af;
+            color: #ffffff;
+            border-color: #1e40af;
+        }
+
+        .btn-primary:hover {
+            background-color: #2563eb;
+            border-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(30, 64, 175, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            color: #1e40af;
+            border-color: #1e40af;
+        }
+
+        .btn-secondary:hover {
+            background-color: #1e40af;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(30, 64, 175, 0.3);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            border-color: #25D366;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            border-color: #128C7E;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            color: #ffffff;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav ul {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #ffffff;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+                border-bottom: 2px solid #1e40af;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav ul li {
+                margin: 1rem 0;
+            }
+
+            .hero {
+                min-height: 70vh;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.125rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.875rem;
+            }
+
+            .points,
+            .programs-grid,
+            .internship-details,
+            .contact-info,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .point-icon,
+            .program-icon {
+                height: 150px;
+            }
+
+            .gallery-item {
+                height: 250px;
+            }
+
+            .about-hero-image {
+                height: 250px;
+            }
+
+            .vision-icon,
+            .mission-icon {
+                height: 150px;
+            }
+
+            .content-section h1 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons,
+            .cta-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 60vh;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .content-section h1,
+            .gallery-section h2 {
+                font-size: 1.75rem;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .hero .container {
+                padding: 2rem 15px;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .point:hover,
+            .gallery-item:hover {
+                transform: none;
+            }
+
+            .gallery-overlay {
+                transform: translateY(0);
+                background: rgba(30, 64, 175, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">KRNS Innovations</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#internship">Internship</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <main id="home">
+        <section class="hero">
+            <div class="hero-image-container">
+                <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\KRNS LOGO SYMBOL.png"
+                     alt="KRNS Innovations Team" 
+                     class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container">
+
+                <h1 class="fade-in">Welcome to KRNS Innovations</h1>
+                <p class="tagline fade-in">  Innovate today. Empower tomorrow.</p>
+                
+                <div class="stats-container fade-in">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="11">0</div>
+                        <div class="stat-label">Students Trained</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="3">0</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="3">0</div>
+                        <div class="stat-label">KRNS Interns</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="4">0</div>
+                        <div class="stat-label">Programs Offered</div>
+                    </div>
+                </div>
+
+                <div class="what-we-do">
+                    <h2 class="fade-in">What We Do</h2>
+                    <div class="points">
+                        <div class="point fade-in">
+                            <div class="point-icon">
+                                <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\electronics image.jpg"
+                                     class="point-image">
+                            </div>
+                            <h3>Software & Hardware Development</h3>
+                            <p>We create innovative solutions for modern challenges</p>
+                        </div>
+                        <div class="point fade-in">
+                            <div class="point-icon">
+                                <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\Technology Education pointing image.jpg" 
+                                     alt="Technology Education" 
+                                     class="point-image">
+                            </div>
+                            <h3>Technology Education</h3>
+                            <p>Empowering students with practical tech skills</p>
+                        </div>
+                        <div class="point fade-in">
+                            <div class="point-icon">
+                                <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\home page.jpg" 
+                                     alt="Internship Programs" 
+                                     class="point-image">
+                            </div>
+                            <h3>Internship Programs</h3>
+                            <p>Hands-on learning opportunities for aspiring professionals</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-buttons fade-in">
+                    <a href="#contact" class="btn btn-primary">Join / Apply</a>
+                    <a href="#programs" class="btn btn-secondary">View Programs</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="container">
+                <h2 class="fade-in">Our Work</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item fade-in">
+                        <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\code image.jpg" 
+                             alt="Coding Session" 
+                             class="gallery-image">
+                        <div class="gallery-overlay">
+                            <p>Coding Sessions</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\electro session img.jpg" 
+                             alt="Hardware Projects" 
+                             class="gallery-image">
+                        <div class="gallery-overlay">
+                            <p>Hardware Projects</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\gd image.jpg" 
+                             alt="Team Collaboration" 
+                             class="gallery-image">
+                        <div class="gallery-overlay">
+                            <p>Team Collaboration</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\teriyala img.jpg" 
+                             alt="Innovation Lab" 
+                             class="gallery-image">
+                        <div class="gallery-overlay">
+                            <p>Innovation Lab</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- About Section -->
+    <section id="about" class="content-section">
+        <div class="container">
+            <h1 class="fade-in">About Us</h1>
+            
+            <div class="about-hero-image fade-in">
+                <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\KRNS Innovation logo .png" 
+                     alt="KRNS Innovations Team" 
+                     class="about-image">
+            </div>
+            
+            <div class="who-we-are fade-in">
+                <h2>Who We Are</h2>
+                <p>At KRNS Innovations, we’re a forward-thinking startup redefining the boundaries of technology through the seamless fusion of software, hardware, and artificial intelligence.
+                    <br> Our mission is to turn bold ideas into intelligent, real-world solutions that drive progress.
+
+We combine cutting-edge AI integration, smart hardware systems, and innovative code development to create technologies that inspire change. Beyond building products, we empower individuals through hands-on learning experiences that bridge the gap between theory and real-world application.
+
+<br>Our passionate team of innovators, engineers, and educators is united by a shared goal — to make technology more accessible, impactful, and future-ready. At KRNS Innovations, we don’t just follow trends — we create them.</p>
+            </div>
+
+            <div class="vision-mission">
+                <div class="vision fade-in">
+                    <div class="vision-icon">
+                        <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\electro session img.jpg" 
+                             alt="Vision" 
+                             class="vision-image">
+                    </div>
+                    <h2>Vision</h2>
+                    <p>To become a leading innovation hub that transforms ideas into reality while nurturing the next generation of tech professionals.</p>
+                </div>
+                <div class="mission fade-in">
+                    <div class="mission-icon">
+                        <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\vision img.jpg" 
+                             alt="Mission" 
+                             class="mission-image">
+                    </div>
+                    <h2>Mission</h2>
+                    <p>To provide quality education and hands-on training in technology, enabling individuals to excel in their careers and contribute to technological advancement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="content-section">
+        <div class="container">
+            <h1 class="fade-in">Our Programs</h1>
+            <p class="subtitle fade-in">Choose from our comprehensive training programs designed to build your skills</p>
+            
+            <div class="programs-grid">
+                <div class="program-card fade-in">
+                    <div class="program-icon">
+                        <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\Technology Education pointing image.jpg" 
+                             alt="Basic Computer" 
+                             class="program-image">
+                    </div>
+                    <h2>Basic Computer</h2>
+                    <p>Learn the fundamentals of computer operations, software usage, and digital literacy. Perfect for beginners starting their tech journey.</p>
+                </div>
+                
+                <div class="program-card fade-in">
+                    <div class="program-icon">
+                        <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\electronics image.jpg" 
+                             alt="Basic Electronics" 
+                             class="program-image">
+                    </div>
+                    <h2>Basic Electronics</h2>
+                    <p>Understand electronic components, circuits, and hardware fundamentals. Get hands-on experience with real-world projects.</p>
+                </div>
+                
+                <div class="program-card fade-in">
+                    <div class="program-icon">
+                        <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\software and hardware devalopment img.png" 
+                             alt="Basic Coding" 
+                             class="program-image">
+                    </div>
+                    <h2>Basic Coding (HTML/CSS)</h2>
+                    <p>Master web development basics with HTML and CSS. Learn to create beautiful and responsive websites from scratch.</p>
+                </div>
+                
+                <div class="program-card fade-in">
+                    <div class="program-icon">
+                        <img src="C:\Users\Kajenth\Documents\KRNS Innovations web\intent img.jpg" 
+                             alt="Internship" 
+                             class="program-image">
+                    </div>
+                    <h2>1-Month Internship</h2>
+                    <p>Gain practical experience through our intensive 1-month internship program. Work on real projects and build your portfolio.</p>
+                    <a href="#internship" class="btn-link">Learn More →</a>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <a href="#contact" class="btn btn-primary">Join Training Program</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internship Section -->
+    <section id="internship" class="content-section">
+        <div class="container">
+            <h1 class="fade-in">Internship Program</h1>
+            
+            <div class="internship-details">
+                <div class="detail-card fade-in">
+                    <h2>Duration</h2>
+                    <p class="highlight">1 Month</p>
+                    <p>Intensive program designed to maximize learning in a short timeframe</p>
+                </div>
+
+                <div class="detail-card fade-in">
+                    <h2>Practical Learning</h2>
+                    <p>Work on real-world projects and gain hands-on experience</p>
+                    <ul class="features-list">
+                        <li>Real project assignments</li>
+                        <li>Mentorship from industry experts</li>
+                        <li>Collaborative team environment</li>
+                        <li>Portfolio building opportunities</li>
+                    </ul>
+                </div>
+
+                <div class="detail-card fade-in">
+                    <h2>Certificate Included</h2>
+                    <p>Upon successful completion, receive a certificate recognizing your achievements and skills</p>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <a href="https://wa.me/9994308192?text=Hi,%20I%20would%20like%20to%20apply%20for%20the%20internship%20program" class="btn btn-primary btn-whatsapp" target="_blank">Apply on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="content-section">
+        <div class="container">
+            <h1 class="fade-in">Contact Us</h1>
+            <p class="subtitle fade-in">Get in touch with us. We're here to help!</p>
+            
+            <div class="contact-info">
+                <div class="contact-card fade-in">
+                    <h2>Location</h2>
+                    <p class="highlight">Chennai TamilNadu, India</p>
+                </div>
+
+                <div class="contact-card fade-in">
+                    <h2>WhatsApp</h2>
+                    <p>Reach out to us directly on WhatsApp</p>
+                    <a href="https://wa.me/9994308192" class="btn btn-primary btn-whatsapp" target="_blank">Contact on WhatsApp</a>
+                </div>
+
+                <div class="contact-card fade-in">
+                    <h2>Email</h2>
+                    <p>Send us an email</p>
+                    <a href="mailto:krnsinnovations@gmail.com" class="btn btn-secondary">Send Email</a>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <a href="#internship" class="btn btn-primary">Apply for Internship</a>
+                <a href="#programs" class="btn btn-secondary">Join Training Program</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 KRNS Innovations. All rights reserved.</p>
+            <p>Chennai TamilNadu , India</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+
+                // Close menu when clicking on a link
+                const navLinks = document.querySelectorAll('.nav-menu a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    const isClickInsideNav = navMenu.contains(event.target);
+                    const isClickOnHamburger = hamburger.contains(event.target);
+                    
+                    if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Update active nav link on scroll
+            const sections = document.querySelectorAll('section[id], main[id]');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Counter animation for statistics
+            function animateCounter(element, target) {
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current);
+                    }
+                }, 30);
+            }
+
+            // Observe statistics for counter animation
+            const statObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statNumber = entry.target.querySelector('.stat-number');
+                        const target = parseInt(statNumber.getAttribute('data-target'));
+                        if (!statNumber.classList.contains('counted')) {
+                            statNumber.classList.add('counted');
+                            animateCounter(statNumber, target);
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.stat-item').forEach(item => {
+                statObserver.observe(item);
+            });
+
+            // Add parallax effect to hero section on scroll
+            window.addEventListener('scroll', () => {
+                const heroImage = document.querySelector('.hero-image');
+                if (heroImage) {
+                    const scrollTop = window.pageYOffset;
+                    const heroSection = document.querySelector('.hero');
+                    if (heroSection) {
+                        const heroHeight = heroSection.offsetHeight;
+                        if (scrollTop < heroHeight) {
+                            heroImage.style.transform = `translateY(${scrollTop * 0.5}px)`;
+                        }
+                    }
+                }
+            }, { passive: true });
+        });
+    </script>
+</body>
+</html>
+
